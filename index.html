@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷與作品集</title>
+    <style>
+        /* 基礎設定與字體 */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 履歷主體容器 */
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* 標題區塊 */
+        header {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        .contact-info {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+        }
+
+        /* 各大區塊標題 */
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* 經歷與學歷列表 */
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .item-date {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        /* --- 網頁作品集專屬樣式 --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .portfolio-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            min-height: 45px;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .portfolio-link:hover {
+            background-color: #2980b9;
+        }
+
+        /* 技能標籤 */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #ecf0f1;
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 手機版響應式微調 */
+        @media (max-width: 600px) {
+            .item-header {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <!-- 個人資訊 -->
+        <header>
+            <h1>陳允中</h1>
+            <div class="contact-info">
+                <span>Email: 112701030@g.nccu.edu.tw</span> |
+                <span>電話: 0901-123-893</span> |
+                <a href="https://github.com/yunchung_chen" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <!-- 簡介區塊 (選填) -->
+        <div class="section">
+            <p>熱衷於網頁開發與資料處理，具備扎實的邏輯分析能力與程式撰寫經驗，期望能將技術應用於解決實際問題。</p>
+        </div>
+
+        <!-- 學歷 -->
+        <div class="section">
+            <h2>學歷</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">政治大學 應用數學系</span>
+                    <span class="item-date">2021.09 - 至今</span>
+                </div>
+                <ul>
+                    <li>修習離散數學、機率論等課程，建立嚴謹的邏輯與演算法基礎。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 網頁作品集 (您要求的新增區塊) -->
+        <div class="section">
+            <h2>網頁作品集</h2>
+            <div class="portfolio-grid">
+                
+                <!-- 作品 1 -->
+                <div class="portfolio-card">
+                    <h3>NLP 資料爬蟲與分析系統</h3>
+                    <p>使用 Python 與 BeautifulSoup 開發，並結合 spaCy 進行自然語言處理與 pymongo 資料庫管理的前端展示網頁。</p>
+                    <a href="https://your-website-url.com" target="_blank" class="portfolio-link">瀏覽網站</a>
+                </div>
+
+                <!-- 作品 2 -->
+                <div class="portfolio-card">
+                    <h3>Kebbi 機器人互動小遊戲</h3>
+                    <p>將 Kebbi 機器人的居家小遊戲專案邏輯，轉化為線上網頁版本的展示介面。</p>
+                    <a href="https://your-website-url.com" target="_blank" class="portfolio-link">瀏覽網站</a>
+                </div>
+
+                <!-- 作品 3 (可依需求複製新增) -->
+                <div class="portfolio-card">
+                    <h3>[您的其他網頁專案名稱]</h3>
+                    <p>簡述這個網頁解決了什麼問題，或是使用了哪些前端框架 (如 React, Vue) 進行開發。</p>
+                    <a href="#" target="_blank" class="portfolio-link">瀏覽網站</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 技能專長 -->
+        <div class="section">
+            <h2>技術專長</h2>
+            <div class="skills-container">
+                <span class="skill-tag">HTML / CSS / JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">BeautifulSoup</span>
+                <span class="skill-tag">spaCy</span>
+                <span class="skill-tag">MongoDB</span>
+            </div>
+        </div>
+
+        <!-- 課外活動 / 經歷 -->
+        <div class="section">
+            <h2>經歷與課外活動</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">大學校隊 棒球隊</span>
+                    <span class="item-date">20XX - 至今</span>
+                </div>
+                <ul>
+                    <li>擔任主戰游擊手，參與每週高強度常態訓練與大專盃賽事。</li>
+                    <li>具備高度團隊合作精神與抗壓性。</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
