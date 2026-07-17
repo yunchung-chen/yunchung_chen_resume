@@ -3,168 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人履歷與作品集</title>
+    <title>陳允中 - 個人履歷與作品集</title>
     <style>
-        /* 基礎設定與字體 */
+        /* 軟體工程師風格：簡潔、扁平化、類 GitHub 視覺 */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333333;
-            --card-bg: #ffffff;
+            --bg-color: #ffffff;
+            --text-main: #24292f;
+            --text-muted: #57606a;
+            --link-color: #0969da;
+            --border-color: #d0d7de;
+            --tag-bg: #f6f8fa;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
         }
 
         body {
-            font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-main);
             line-height: 1.6;
-            color: var(--text-color);
+            color: var(--text-main);
             background-color: var(--bg-color);
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* 履歷主體容器 */
         .resume-container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        /* 標題區塊 */
+        /* 標題與聯絡資訊 */
         header {
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 20px;
             margin-bottom: 30px;
-            text-align: center;
         }
 
         header h1 {
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
-            font-size: 2.5rem;
+            margin: 0 0 8px 0;
+            font-size: 2.2rem;
+            font-weight: 600;
         }
 
         .contact-info {
-            color: #666;
-            font-size: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         .contact-info a {
-            color: var(--secondary-color);
+            color: var(--link-color);
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
+            font-weight: 500;
         }
 
         .contact-info a:hover {
-            color: #2980b9;
+            text-decoration: underline;
         }
 
-        /* 各大區塊標題 */
+        /* 區塊標題 */
         h2 {
-            color: var(--primary-color);
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 15px;
         }
 
-        /* 經歷與學歷列表 */
+        .section p {
+            color: var(--text-main);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 列表樣式精簡 */
         .experience-item {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .item-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .item-role {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
         }
 
         .item-date {
-            color: #7f8c8d;
-            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         ul {
-            margin-top: 5px;
+            margin: 4px 0 0 0;
             padding-left: 20px;
-            color: #555;
+            color: var(--text-main);
+            font-size: 0.95rem;
         }
 
-        /* --- 網頁作品集專屬樣式 --- */
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* 技能標籤 (程式碼風格) */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: var(--tag-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+        }
+
+        /* 作品集網格 */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 16px;
         }
 
         .portfolio-card {
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
             background-color: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
         .portfolio-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
-            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .portfolio-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            min-height: 45px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            min-height: 40px;
         }
 
         .portfolio-link {
             display: inline-block;
-            padding: 8px 16px;
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
             font-size: 0.9rem;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 600;
         }
 
         .portfolio-link:hover {
-            background-color: #2980b9;
-        }
-
-        /* 技能標籤 */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: #ecf0f1;
-            color: var(--primary-color);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            text-decoration: underline;
         }
 
         /* 手機版響應式微調 */
@@ -173,7 +178,11 @@
                 flex-direction: column;
             }
             .item-date {
-                margin-top: 5px;
+                margin-top: 2px;
+                color: var(--text-muted);
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -186,83 +195,133 @@
         <header>
             <h1>陳允中</h1>
             <div class="contact-info">
-                <span>Email: 112701030@g.nccu.edu.tw</span> |
-                <span>電話: 0901-123-893</span> |
+                <span>112701030@g.nccu.edu.tw</span> &nbsp;|&nbsp;
+                <span>0901-123-893</span> &nbsp;|&nbsp;
                 <a href="https://github.com/yunchung-chen" target="_blank">GitHub</a>
             </div>
         </header>
 
-        <!-- 簡介區塊 (選填) -->
+        <!-- 簡介區塊 -->
         <div class="section">
-            <p>熱衷於網頁開發與資料處理，具備扎實的邏輯分析能力與程式撰寫經驗，期望能將技術應用於解決實際問題。</p>
-        </div>
-
-        <!-- 學歷 -->
-        <div class="section">
-            <h2>學歷</h2>
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">政治大學 應用數學系</span>
-                    <span class="item-date">2021.09 - 至今</span>
-                </div>
-                <ul>
-                    <li>修習離散數學、機率論等課程，建立嚴謹的邏輯與演算法基礎。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 網頁作品集 (您要求的新增區塊) -->
-        <div class="section">
-            <h2>網頁作品集</h2>
-            <div class="portfolio-grid">
-                
-                <!-- 作品 1 -->
-                <div class="portfolio-card">
-                    <h3>政大棒球隊球隊官網</h3>
-                    <p>後端使用 Python 作為計算工具，資料庫使用輕便版的 SQLite ，前端使用 HTML+CSS+Javascript 進行網頁的架設。</p>
-                    <a href="https://nccubbcdatacenter.pythonanywhere.com/" target="_blank" class="portfolio-link">瀏覽網站</a>
-                </div>
-
-                <!-- 作品 2 -->
-                <div class="portfolio-card">
-                    <h3>Kebbi 機器人互動小遊戲</h3>
-                    <p>將 Kebbi 機器人的居家小遊戲專案邏輯，轉化為線上網頁版本的展示介面。</p>
-                    <a href="https://your-website-url.com" target="_blank" class="portfolio-link">瀏覽網站</a>
-                </div>
-
-                <!-- 作品 3 (可依需求複製新增) -->
-                <div class="portfolio-card">
-                    <h3>[您的其他網頁專案名稱]</h3>
-                    <p>簡述這個網頁解決了什麼問題，或是使用了哪些前端框架 (如 React, Vue) 進行開發。</p>
-                    <a href="#" target="_blank" class="portfolio-link">瀏覽網站</a>
-                </div>
-
-            </div>
+            <p>目前就讀數學系三年級，具備扎實的邏輯推演能力與跨領域的學習熱忱。透過主動投入 Python 爬蟲、資料庫管理與 AI 機器人專題，努力將抽象的數學理論轉化為實務應用，並在過程中培養了面對挫折的韌性與解決問題的能力。</p>
+            <p>非常嚮往佳必琪 (JPC) 在 AI 智慧連結與雲端物聯網領域的產業地位，期許能爭取此次實習機會，運用所學技能協助部門處理日常任務，並在觀摩與實作中深入了解科技產業的實際運作。</p>
         </div>
 
         <!-- 技能專長 -->
         <div class="section">
-            <h2>技術專長</h2>
+            <h2>Technical Skills</h2>
             <div class="skills-container">
                 <span class="skill-tag">HTML / CSS / JavaScript</span>
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">BeautifulSoup</span>
                 <span class="skill-tag">spaCy</span>
+                <span class="skill-tag">SQLite</span>
                 <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Data Structures</span>
+                <span class="skill-tag">Algorithms Application</span>
             </div>
         </div>
 
-        <!-- 課外活動 / 經歷 -->
+        <!-- 網頁作品集 -->
         <div class="section">
-            <h2>經歷與課外活動</h2>
+            <h2>Projects</h2>
+            <div class="portfolio-grid">
+                <!-- 作品 1 -->
+                <div class="portfolio-card">
+                    <h3>政大棒球隊球隊官網</h3>
+                    <p>獨立架設棒球數據網站。後端使用 Python 進行資料運算，結合 SQLite 資料庫管理；前端使用 HTML/CSS/JS 進行介面開發與實作。</p>
+                    <a href="https://nccubbcdatacenter.pythonanywhere.com/" target="_blank" class="portfolio-link">View Project &rarr;</a>
+                </div>
+
+                <!-- 作品 2 -->
+                <div class="portfolio-card">
+                    <h3>Kebbi 機器人互動小遊戲</h3>
+                    <p>參與機器人互動專題，將 Kebbi 機器人的居家小遊戲專案邏輯，轉化為線上網頁版本的展示介面，具備演算法落地應用的經驗。</p>
+                    <a href="https://your-website-url.com" target="_blank" class="portfolio-link">View Project &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工作經歷 -->
+        <div class="section">
+            <h2>Work Experience</h2>
+            
             <div class="experience-item">
                 <div class="item-header">
-                    <span class="item-title">大學校隊 棒球隊</span>
-                    <span class="item-date">20XX - 至今</span>
+                    <span class="item-title">WBSC 世界棒球 12 強賽</span>
+                    <span class="item-date">2024</span>
+                </div>
+                <div class="item-role">球場翻譯 (英文)</div>
+                <ul>
+                    <li>於頂級國際賽事中，負責外籍裁判、外籍技術委員與主辦單位間的雙向即時翻譯，確保賽事規則與場邊資訊傳達之精確性。</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">亞洲青棒錦標賽 & WBSC U-12 世界盃</span>
+                    <span class="item-date">2024 - 2025</span>
+                </div>
+                <div class="item-role">球場翻譯 (英文)</div>
+            </div>
+        </div>
+
+        <!-- 經歷與課外活動 -->
+        <div class="section">
+            <h2>Extracurricular Activities</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">國立政治大學棒球隊校隊 (主戰游擊手)</span>
+                </div>
+                <div class="item-role">隊長 (即將接任) / 副隊長 / 總務</div>
+                <ul>
+                    <li><strong>帳務管理：</strong>擔任總務期間，管控球隊預算，並協助爭取校友會贊助。</li>
+                    <li><strong>團隊領導：</strong>擔任副隊長期間作為球員與教練間之橋樑，並帶領球隊奪得全國大專棒球乙組殿軍之佳績。</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">政大棒球聯盟</span>
+                </div>
+                <div class="item-role">聯盟長</div>
+                <ul>
+                    <li>統籌規劃全校性棒球聯賽，管理 7 支參賽隊伍與賽程，具備突發事件的公關溝通能力。</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">政大盃棒球邀請賽</span>
+                </div>
+                <div class="item-role">副總召</div>
+                <ul>
+                    <li>協助統籌跨校大型盃賽，負責協調 6 支參賽隊伍之報名、賽程安排與現場突發狀況排除。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 學歷 -->
+        <div class="section">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">國立政治大學 應用數學系</span>
+                    <span class="item-date">2021.09 - 至今 (大三)</span>
                 </div>
                 <ul>
-                    <li>擔任主戰游擊手，參與每週高強度常態訓練與大專盃賽事。</li>
-                    <li>具備高度團隊合作精神與抗壓性。</li>
+                    <li>修習離散數學、機率論、資料結構等課程，建立嚴謹的邏輯與演算法基礎。</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <span class="item-title">臺北市立成功高級中學</span>
+                    <span class="item-date">畢業</span>
+                </div>
+                <ul>
+                    <li>成功高中棒球社 社長</li>
                 </ul>
             </div>
         </div>
