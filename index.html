@@ -4,328 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>陳允中 - 個人履歷與作品集</title>
-    <style>
-        /* 軟體工程師風格：簡潔、扁平化、類 GitHub 視覺 */
-        :root {
-            --bg-color: #ffffff;
-            --text-main: #24292f;
-            --text-muted: #57606a;
-            --link-color: #0969da;
-            --border-color: #d0d7de;
-            --tag-bg: #f6f8fa;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-        }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 40px 20px;
-        }
-
-        .resume-container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        /* 標題與聯絡資訊 */
-        header {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            margin: 0 0 8px 0;
-            font-size: 2.2rem;
-            font-weight: 600;
-        }
-
-        .contact-info {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .contact-info a {
-            color: var(--link-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* 區塊標題 */
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 35px;
-            margin-bottom: 15px;
-        }
-
-        .section p {
-            color: var(--text-main);
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* 列表樣式精簡 */
-        .experience-item {
-            margin-bottom: 18px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .item-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        .item-role {
-            font-size: 1rem;
-            color: var(--text-main);
-            font-weight: 500;
-        }
-
-        .item-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        ul {
-            margin: 4px 0 0 0;
-            padding-left: 20px;
-            color: var(--text-main);
-            font-size: 0.95rem;
-        }
-
-        li {
-            margin-bottom: 4px;
-        }
-
-        /* 技能標籤 (程式碼風格) */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background-color: var(--tag-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-family: var(--font-code);
-            font-size: 0.85rem;
-        }
-
-        /* 作品集網格 */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 16px;
-        }
-
-        .portfolio-card {
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 16px;
-            background-color: #fff;
-        }
-
-        .portfolio-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .portfolio-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            min-height: 40px;
-        }
-
-        .portfolio-link {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: var(--link-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .portfolio-link:hover {
-            text-decoration: underline;
-        }
-
-        /* 手機版響應式微調 */
-        @media (max-width: 600px) {
-            .item-header {
-                flex-direction: column;
-            }
-            .item-date {
-                margin-top: 2px;
-                color: var(--text-muted);
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自訂 Tailwind 設定，微調字體與顏色 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    }
+                }
             }
         }
-    </style>
+    </script>
 </head>
-<body>
+<!-- 背景使用極淺的 slate 色，讓白色的履歷主體浮現出來 -->
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900 py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
 
-    <div class="resume-container">
-        
-        <!-- 個人資訊 -->
-        <header>
-            <h1>陳允中</h1>
-            <div class="contact-info">
-                <span>112701030@g.nccu.edu.tw</span> &nbsp;|&nbsp;
-                <span>0901-123-893</span> &nbsp;|&nbsp;
-                <a href="https://github.com/yunchung-chen" target="_blank">GitHub</a>
-            </div>
-        </header>
-
-        <!-- 簡介區塊 -->
-        <div class="section">
-            <p>目前就讀數學系三年級，具備扎實的邏輯推演能力與跨領域的學習熱忱。透過主動投入 Python 爬蟲、資料庫管理與 AI 機器人專題，努力將抽象的數學理論轉化為實務應用，並在過程中培養了面對挫折的韌性與解決問題的能力。</p>
-            <p>非常嚮往佳必琪 (JPC) 在 AI 智慧連結與雲端物聯網領域的產業地位，期許能爭取此次實習機會，運用所學技能協助部門處理日常任務，並在觀摩與實作中深入了解科技產業的實際運作。</p>
-        </div>
-
-        <!-- 技能專長 -->
-        <div class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">HTML / CSS / JavaScript</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">BeautifulSoup</span>
-                <span class="skill-tag">spaCy</span>
-                <span class="skill-tag">SQLite</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Data Structures</span>
-                <span class="skill-tag">Algorithms Application</span>
-            </div>
-        </div>
-
-        <!-- 網頁作品集 -->
-        <div class="section">
-            <h2>Projects</h2>
-            <div class="portfolio-grid">
-                <!-- 作品 1 -->
-                <div class="portfolio-card">
-                    <h3>政大棒球隊球隊官網</h3>
-                    <p>獨立架設棒球數據網站。後端使用 Python 進行資料運算，結合 SQLite 資料庫管理；前端使用 HTML/CSS/JS 進行介面開發與實作。</p>
-                    <a href="https://nccubbcdatacenter.pythonanywhere.com/" target="_blank" class="portfolio-link">View Project &rarr;</a>
-                </div>
-
-                <!-- 作品 2 -->
-                <div class="portfolio-card">
-                    <h3>Kebbi 機器人互動小遊戲</h3>
-                    <p>參與機器人互動專題，將 Kebbi 機器人的居家小遊戲專案邏輯，轉化為線上網頁版本的展示介面，具備演算法落地應用的經驗。</p>
-                    <a href="https://your-website-url.com" target="_blank" class="portfolio-link">View Project &rarr;</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 工作經歷 -->
-        <div class="section">
-            <h2>Work Experience</h2>
+    <!-- 履歷白底容器 -->
+    <div class="max-w-4xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div class="p-8 sm:p-12 md:p-16">
             
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">WBSC 世界棒球 12 強賽</span>
-                    <span class="item-date">2024</span>
+            <!-- 個人資訊 Header -->
+            <header class="border-b border-slate-200 pb-8 mb-10">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">陳允中</h1>
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:text-base text-slate-600">
+                    <span class="flex items-center hover:text-slate-900 transition-colors">
+                        112701030@g.nccu.edu.tw
+                    </span>
+                    <span class="text-slate-300 hidden sm:inline">|</span>
+                    <span class="hover:text-slate-900 transition-colors">
+                        0901-123-893
+                    </span>
+                    <span class="text-slate-300 hidden sm:inline">|</span>
+                    <a href="https://github.com/yunchung-chen" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors">
+                        GitHub Profile
+                    </a>
                 </div>
-                <div class="item-role">球場翻譯 (英文)</div>
-                <ul>
-                    <li>於頂級國際賽事中，負責外籍裁判、外籍技術委員與主辦單位間的雙向即時翻譯，確保賽事規則與場邊資訊傳達之精確性。</li>
-                </ul>
-            </div>
+            </header>
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">亞洲青棒錦標賽 & WBSC U-12 世界盃</span>
-                    <span class="item-date">2024 - 2025</span>
+            <!-- 簡介區塊 -->
+            <section class="mb-14">
+                <div class="space-y-4 text-slate-700 leading-relaxed text-justify">
+                    <p>目前就讀數學系三年級，具備扎實的邏輯推演能力與跨領域的學習熱忱。透過主動投入 Python 爬蟲、資料庫管理與 AI 機器人專題，努力將抽象的數學理論轉化為實務應用，並在過程中培養了面對挫折的韌性與解決問題的能力。</p>
+                    <p>非常嚮往佳必琪 (JPC) 在 AI 智慧連結與雲端物聯網領域的產業地位，期許能爭取此次實習機會，運用所學技能協助部門處理日常任務，並在觀摩與實作中深入了解科技產業的實際運作。</p>
                 </div>
-                <div class="item-role">球場翻譯 (英文)</div>
-            </div>
+            </section>
+
+            <!-- 技能專長 -->
+            <section class="mb-14">
+                <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">Technical Skills</h2>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">HTML / CSS / JavaScript</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">Python</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">BeautifulSoup</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">spaCy</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">SQLite</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">MongoDB</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">Data Structures</span>
+                    <span class="bg-slate-50 border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-sm font-mono hover:bg-slate-100 hover:border-slate-300 transition-colors">Algorithms Application</span>
+                </div>
+            </section>
+
+            <!-- 網頁作品集 -->
+            <section class="mb-14">
+                <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- 作品 1 (使用 group 來觸發 hover 動畫) -->
+                    <div class="group flex flex-col justify-between border border-slate-200 rounded-xl p-6 bg-white hover:border-blue-300 hover:shadow-md transition-all duration-300">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">政大棒球隊球隊官網</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">獨立架設棒球數據網站。後端使用 Python 進行資料運算，結合 SQLite 資料庫管理；前端使用 HTML/CSS/JS 進行介面開發與實作。</p>
+                        </div>
+                        <a href="https://nccubbcdatacenter.pythonanywhere.com/" target="_blank" class="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors mt-auto">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- 作品 2 -->
+                    <div class="group flex flex-col justify-between border border-slate-200 rounded-xl p-6 bg-white hover:border-blue-300 hover:shadow-md transition-all duration-300">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">Kebbi 機器人互動小遊戲</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">參與機器人互動專題，將 Kebbi 機器人的居家小遊戲專案邏輯，轉化為線上網頁版本的展示介面，具備演算法落地應用的經驗。</p>
+                        </div>
+                        <a href="#" target="_blank" class="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors mt-auto">
+                            View Project 
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 工作經歷 -->
+            <section class="mb-14">
+                <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">Work Experience</h2>
+                
+                <div class="mb-8 last:mb-0 relative pl-4 border-l-2 border-slate-200">
+                    <div class="absolute w-2 h-2 bg-blue-500 rounded-full -left-[5px] top-2"></div>
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">WBSC 世界棒球 12 強賽</h3>
+                        <span class="text-sm font-medium text-slate-500 mt-1 sm:mt-0 font-mono">2024</span>
+                    </div>
+                    <div class="text-sm font-semibold text-blue-600 mb-2">球場翻譯 (英文)</div>
+                    <ul class="list-disc list-outside ml-4 text-slate-700 text-sm leading-relaxed space-y-1">
+                        <li>於頂級國際賽事中，負責外籍裁判、外籍技術委員與主辦單位間的雙向即時翻譯，確保賽事規則與場邊資訊傳達之精確性。</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8 last:mb-0 relative pl-4 border-l-2 border-slate-200">
+                    <div class="absolute w-2 h-2 bg-blue-500 rounded-full -left-[5px] top-2"></div>
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">亞洲青棒錦標賽 & WBSC U-12 世界盃</h3>
+                        <span class="text-sm font-medium text-slate-500 mt-1 sm:mt-0 font-mono">2024 - 2025</span>
+                    </div>
+                    <div class="text-sm font-semibold text-blue-600 mb-2">球場翻譯 (英文)</div>
+                </div>
+            </section>
+
+            <!-- 經歷與課外活動 -->
+            <section class="mb-14">
+                <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">Extracurricular Activities</h2>
+                
+                <div class="mb-8 last:mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">國立政治大學棒球隊校隊 <span class="text-slate-500 font-normal text-base ml-1">(主戰游擊手)</span></h3>
+                    </div>
+                    <div class="text-sm font-semibold text-slate-700 mb-2">隊長 (即將接任) / 副隊長 / 總務</div>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 text-sm leading-relaxed space-y-1.5">
+                        <li><strong class="text-slate-900">帳務管理：</strong>擔任總務期間，管控球隊預算，並協助爭取校友會贊助。</li>
+                        <li><strong class="text-slate-900">團隊領導：</strong>擔任副隊長期間作為球員與教練間之橋樑，並帶領球隊奪得全國大專棒球乙組殿軍之佳績。</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8 last:mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">政大棒球聯盟</h3>
+                    </div>
+                    <div class="text-sm font-semibold text-slate-700 mb-2">聯盟長</div>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 text-sm leading-relaxed space-y-1.5">
+                        <li>統籌規劃全校性棒球聯賽，管理 7 支參賽隊伍與賽程，具備突發事件的公關溝通能力。</li>
+                    </ul>
+                </div>
+
+                <div class="mb-8 last:mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">政大盃棒球邀請賽</h3>
+                    </div>
+                    <div class="text-sm font-semibold text-slate-700 mb-2">副總召</div>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 text-sm leading-relaxed space-y-1.5">
+                        <li>協助統籌跨校大型盃賽，負責協調 6 支參賽隊伍之報名、賽程安排與現場突發狀況排除。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 學歷 -->
+            <section>
+                <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-slate-100 pb-3 mb-6">Education</h2>
+                
+                <div class="mb-6 last:mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">國立政治大學 應用數學系</h3>
+                        <span class="text-sm font-medium text-slate-500 mt-1 sm:mt-0 font-mono">2021.09 - 至今 (大三)</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 text-sm leading-relaxed space-y-1">
+                        <li>修習離散數學、機率論、資料結構等課程，建立嚴謹的邏輯與演算法基礎。</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6 last:mb-0">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-bold text-slate-900">臺北市立成功高級中學</h3>
+                        <span class="text-sm font-medium text-slate-500 mt-1 sm:mt-0 font-mono">畢業</span>
+                    </div>
+                    <ul class="list-disc list-outside ml-5 text-slate-700 text-sm leading-relaxed space-y-1">
+                        <li>成功高中棒球社 社長</li>
+                    </ul>
+                </div>
+            </section>
+
         </div>
-
-        <!-- 經歷與課外活動 -->
-        <div class="section">
-            <h2>Extracurricular Activities</h2>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">國立政治大學棒球隊校隊 (主戰游擊手)</span>
-                </div>
-                <div class="item-role">隊長 (即將接任) / 副隊長 / 總務</div>
-                <ul>
-                    <li><strong>帳務管理：</strong>擔任總務期間，管控球隊預算，並協助爭取校友會贊助。</li>
-                    <li><strong>團隊領導：</strong>擔任副隊長期間作為球員與教練間之橋樑，並帶領球隊奪得全國大專棒球乙組殿軍之佳績。</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">政大棒球聯盟</span>
-                </div>
-                <div class="item-role">聯盟長</div>
-                <ul>
-                    <li>統籌規劃全校性棒球聯賽，管理 7 支參賽隊伍與賽程，具備突發事件的公關溝通能力。</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">政大盃棒球邀請賽</span>
-                </div>
-                <div class="item-role">副總召</div>
-                <ul>
-                    <li>協助統籌跨校大型盃賽，負責協調 6 支參賽隊伍之報名、賽程安排與現場突發狀況排除。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 學歷 -->
-        <div class="section">
-            <h2>Education</h2>
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">國立政治大學 應用數學系</span>
-                    <span class="item-date">2021.09 - 至今 (大三)</span>
-                </div>
-                <ul>
-                    <li>修習離散數學、機率論、資料結構等課程，建立嚴謹的邏輯與演算法基礎。</li>
-                </ul>
-            </div>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <span class="item-title">臺北市立成功高級中學</span>
-                    <span class="item-date">畢業</span>
-                </div>
-                <ul>
-                    <li>成功高中棒球社 社長</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 
 </body>
